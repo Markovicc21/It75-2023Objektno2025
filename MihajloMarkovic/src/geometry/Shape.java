@@ -50,6 +50,7 @@ public abstract class Shape implements Moveable,Comparable{
 	
 	public abstract void draw (Graphics g);
 	public abstract boolean contains (int x, int y);
+	public abstract boolean contains (Point point);
 	public void fill(Graphics g) {
 		
 	}
