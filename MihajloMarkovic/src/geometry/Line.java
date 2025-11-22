@@ -19,10 +19,8 @@ public class Line extends Shape{
 	
 	public Line(Point startPoint, Point endPoint, boolean selected) 
 	{
-		this.startPoint=startPoint;
-		this.endPoint=endPoint;
-		this.selected=selected;
-		
+		this(startPoint,endPoint);
+		this.selected = selected;
 	}
 	
 	public Line(Point startPoint,Point endPoint, boolean selected,Color color) {
