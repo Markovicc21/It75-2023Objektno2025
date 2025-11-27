@@ -27,7 +27,7 @@ public class Doughnut extends Shape {
 	public Doughnut (int radius, int innerRadius,Point center, boolean selected) 
 	{
 		this(radius,innerRadius,center);
-		setSelected(selected);
+		this.selected = selected;
 	}
 
 	

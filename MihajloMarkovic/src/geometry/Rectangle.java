@@ -24,7 +24,7 @@ public class Rectangle extends Shape {
 	public Rectangle(Point upperLeftPoint,int height,int width, boolean selected) 
 	{
 		this(upperLeftPoint,height,width);
-		this.selected = selected;
+		this.selected =  selected;
 	}
 	
 	public Rectangle(Point upperLeftPoint,int height,int width, boolean selected, Color color) 
@@ -127,7 +127,7 @@ public class Rectangle extends Shape {
 	@Override
 	public void draw(Graphics g) {
 		// TODO Auto-generated method stub
-		g.setColor(color);
+		g.setColor(getColor());
 		g.drawRect(this.upperLeftPoint.getX(),this.upperLeftPoint.getY(),this.width,this.height);
 		
 		this.fill(g);
@@ -144,8 +144,8 @@ public class Rectangle extends Shape {
 	
 	public void fill(Graphics g) 
 	{
-		g.setColor(innerColor);
-		g.fillRect(this.upperLeftPoint.getX() + 1, this.upperLeftPoint.getY() + 1, width - 1, width -1);
+		g.setColor(getInnerColor());
+		g.fillRect(this.upperLeftPoint.getX() + 1, this.upperLeftPoint.getY() + 1, width - 1, height -1);
 	}
 	
 	@Override

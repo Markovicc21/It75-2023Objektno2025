@@ -23,7 +23,7 @@ public class Circle extends Shape{
 	public Circle(int radius, Point center, boolean selected) 
 	{
 		this(radius,center);
-		setSelected(selected);
+		this.selected = selected;
 	}
 	
 	public Circle(int radius,Point center, boolean selected,Color color) 
@@ -56,9 +56,9 @@ public class Circle extends Shape{
 	
 	public void setRadius(int radius) throws Exception 
 	{
-		if(radius < 0) 
+		if(radius <= 0) 
 		{
-			throw new Exception("Radius ne sme da bude manji od 0");
+			throw new Exception("Radius mora biti veci od 0");
 
 		}
 		this.radius = radius;
