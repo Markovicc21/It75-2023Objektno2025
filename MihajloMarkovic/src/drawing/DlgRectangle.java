@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JColorChooser;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -25,7 +26,8 @@ public class DlgRectangle extends JDialog {
     private JTextField txtHeight;
     private JTextField txtWidth;
     private boolean confirmation = false; 
-
+    private Color color = null;
+    private Color innerColor = Color.WHITE;
     
     public static void main(String[] args) {
         try {
@@ -181,6 +183,45 @@ public class DlgRectangle extends JDialog {
 			cancelButton.setActionCommand("Cancel");
 			buttonPane.add(cancelButton);
 			
+			
+			JButton btnColor = new JButton("COLOR");
+			btnColor.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) 
+				{
+					color = JColorChooser.showDialog(null, "Color", btnColor.getBackground());
+					if(color != null) 
+					{
+						btnColor.setBackground(color);
+					}
+				}
+			});
+			GridBagConstraints gbc_btnColor = new GridBagConstraints();
+    		gbc_btnColor.insets = new Insets(0, 0, 0, 5);
+    		gbc_btnColor.gridx = 0;
+    		gbc_btnColor.gridy = 4;
+    		contentPanel.add(btnColor, gbc_btnColor);
+    		
+    		
+    		
+    		JButton btnInnerColor = new JButton("INNERCOLOR");
+    		btnInnerColor.addActionListener(new ActionListener() {
+    			public void actionPerformed(ActionEvent e) {
+    				innerColor = JColorChooser.showDialog(btnInnerColor, "InnerColor", btnInnerColor.getBackground());
+    				if(innerColor != null) 
+    				{
+    					btnInnerColor.setBackground(innerColor);
+    					color = btnInnerColor.getBackground();
+    				}
+
+    			}
+    		});
+    		 GridBagConstraints gbc_btnInnerColor = new GridBagConstraints();
+             gbc_btnInnerColor.gridx = 1;
+             gbc_btnInnerColor.gridy = 4;
+             contentPanel.add(btnInnerColor, gbc_btnInnerColor);
+    		
+
+    		
 		}
     
     public JTextField getTxtX() {
@@ -218,7 +259,25 @@ public class DlgRectangle extends JDialog {
 	 public boolean isConfirmation() {
 	        return confirmation;
 	    }
-	    
+	 public Color getColor() 
+	 {
+		return color; 
+	 }
+	 
+	 public void setColor(Color color) 
+	 {
+		 this.color = color;
+	 }
+	 
+	 public Color getInnerColor() 
+	 {
+		 return innerColor;
+	 }
+	 
+	 public void setInnerColor(Color innerColor) 
+	 {
+		 this.innerColor = innerColor;
+	 }
     
     
   }
