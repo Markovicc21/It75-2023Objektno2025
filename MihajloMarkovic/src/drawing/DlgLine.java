@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JColorChooser;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -24,7 +25,7 @@ public class DlgLine extends JDialog{
 	private JTextField txtY1;
 	private JTextField txtY2;
 	private boolean confirmation = false;
-	
+	private Color color;
 	
 	public static void main(String[] args) 
 	{
@@ -166,6 +167,24 @@ public class DlgLine extends JDialog{
 		cancelButton.setActionCommand("Cancel");
 		buttonPane.add(cancelButton);
 		
+		
+		
+		JButton btnColor = new JButton("COLOR");
+		btnColor.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				color = JColorChooser.showDialog(null, "Color", btnColor.getBackground());
+				if(color != null) 
+				{
+					btnColor.setBackground(color);
+				}
+			}
+		});
+		
+		GridBagConstraints gbc_btnColor = new GridBagConstraints();
+		gbc_btnColor.gridx = 3;
+		gbc_btnColor.gridy = 9;
+		contentPanel.add(btnColor, gbc_btnColor);
 	}
 	
 
@@ -210,6 +229,15 @@ public class DlgLine extends JDialog{
 		this.confirmation = confirmation;
 	}
 	
+	public Color getColor() 
+	{
+		return color;
+	}
+	
+	public void setColor(Color color) 
+	{
+		this.color = color;
+	}
 	
 	
 }
