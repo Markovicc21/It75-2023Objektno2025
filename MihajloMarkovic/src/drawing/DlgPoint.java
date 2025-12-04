@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JColorChooser;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -129,6 +130,27 @@ public class DlgPoint extends JDialog{
 				cancelButton.setActionCommand("Cancel");
 				buttonPane.add(cancelButton);
 			}
+			
+			JButton btnColor = new JButton("COLOR");
+			btnColor.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					color = JColorChooser.showDialog(null, "Color", btnColor.getBackground());
+					if(color != null) 
+					{
+						btnColor.setBackground(color);
+						color = btnColor.getBackground();
+						
+					}
+				}
+				
+			});
+			
+			GridBagConstraints gbc_btnColor = new GridBagConstraints();
+			gbc_btnColor.gridx = 3;
+			gbc_btnColor.gridy = 7;
+			contentPanel.add(btnColor, gbc_btnColor);
+			
+			
 		}
 		
 	}
