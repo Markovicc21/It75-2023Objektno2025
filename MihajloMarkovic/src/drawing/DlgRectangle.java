@@ -210,7 +210,7 @@ public class DlgRectangle extends JDialog {
     				if(innerColor != null) 
     				{
     					btnInnerColor.setBackground(innerColor);
-    					color = btnInnerColor.getBackground();
+    					
     				}
 
     			}
